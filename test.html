@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1320" />
+  <title>한 잔 추천받기 | 경상동동</title>
+
+  <link rel="stylesheet" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" />
+  <link rel="shortcut icon" href="images/favicon/favicon.svg" type="image/x-icon" />
+
+  <style>
+    :root{
+      --ink:#5C3A21; --sub:#9B7B64; --paper:#FFFAED; --btn:#5C3A21; --btn-ink:#F1E7D0; --accent:#A9CAD1;
+      --pct:33; /* 진행 퍼센트 (JS에서 갱신: 0~100) */
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font:400 18px Pretendard,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; color:var(--ink);
+      overflow:hidden;
+    }
+
+    /* ===== 레이어 구조 ===== */
+    .shell{
+      position:fixed; inset:0; display:grid; place-items:center;
+      height:100%; padding:32px; overflow:hidden;
+      background:#EB8A00; background-image:radial-gradient(circle, #F1E7D0, #E6D3B3);
+      position:relative; /* z-index 기준 */
+    }
+    .frame{
+      width:min(980px, 92vw); min-height:660px; max-height:86vh; overflow:hidden;
+      background:var(--paper); border-radius:32px;
+      box-shadow: 20px 20px 60px rgba(92,58,33,.25);
+      display:flex; flex-direction:column; position:relative; z-index:2;
+    }
+
+    /* 상단바 */
+    .topbar{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:18px 24px; border-bottom:1px solid rgba(92,58,33,.12);
+    }
+    .brand{display:flex; align-items:center; gap:12px; font-weight:700}
+    .brand img{width:24px; height:24px; display:block}
+    .brand-badge{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:6px 10px; border-radius:999px; background:#F6EFE1; color:#7a5a43; font-size:12px; font-weight:700;
+    }
+    .brand-badge svg{width:16px; height:16px; display:block}
+    .hashes{display:flex; gap:8px; margin-left:12px}
+    .hash{font:600 11px/1 Pretendard; color:#6b523f; background:#F6EFE1; padding:6px 10px; border-radius:999px}
+
+    .close{
+      appearance:none; border:none; background:#DDD3BD; color:var(--ink);
+      width:40px; height:40px; border-radius:50%; cursor:pointer;
+    }
+    .close:active{transform:translateY(1px)}
+
+    /* ===== 진행바: 100px, 경계 무이음 처리 ===== */
+    .progress{
+      display:flex; justify-content:center; align-items:center;
+      padding:12px 0 8px;
+      background:transparent;
+    }
+    .progress-svg{ width:100px; height:auto; overflow:visible; }
+    .progress-svg .base{ fill:#5C3A21; }   /* 잔 바탕 (풀 채움) */
+    /* 아래 rect로 클리핑해 액체를 올림 → 경계가 정확히 일치해 이음새 없음 */
+    .progress-svg .liquid{ fill:#F1E7D0; }
+    .progress-svg .level{
+      transform-box: fill-box;
+      transform-origin: center bottom;    /* 아래 기준으로 키움 */
+      transform: scaleY(calc(var(--pct)/100));
+      transition: transform .55s ease;
+    }
+
+    /* ===== 스테이지 & 페이지 플립 ===== */
+    .stage{
+      position:relative; flex:1; padding:48px; perspective:1400px; overflow:hidden;
+      display:grid; place-items:center;
+    }
+    .panel{
+      width:min(760px, 88%); max-width:760px;
+      position:absolute;
+      top:50%; left:50%; transform:translate(-50%,-50%);
+      opacity:0; pointer-events:none;
+    }
+    .panel.show{opacity:1; pointer-events:auto;}
+    .flip-in{ animation:flipIn .6s cubic-bezier(.2,.7,.2,1) both; transform-origin:right center; }
+    .flip-out{ animation:flipOut .6s cubic-bezier(.2,.7,.2,1) both; transform-origin:left center; }
+    @keyframes flipIn{
+      0%{transform:translate(-50%,-50%) rotateY(-80deg); filter:brightness(.95)}
+      60%{transform:translate(-50%,-50%) rotateY(8deg)}
+      100%{transform:translate(-50%,-50%) rotateY(0)}
+    }
+    @keyframes flipOut{
+      0%{transform:translate(-50%,-50%) rotateY(0)}
+      100%{transform:translate(-50%,-50%) rotateY(80deg); filter:brightness(.95)}
+    }
+
+    /* 타이포 & 여백 */
+    .q-title{font:600 34px "Chosunilbo_myungjo"; margin:0 0 16px}
+    .q-desc{color:#7c5f48; margin:0 0 26px}
+    .choices{display:grid; gap:16px}
+    .choice{
+      border:1px solid rgba(92,58,33,.18); background:#fff; border-radius:16px;
+      padding:16px 18px; text-align:left; cursor:pointer; transition:transform .15s ease, box-shadow .15s ease;
+      position:relative; overflow:hidden; display:flex; align-items:center; gap:10px;
+    }
+    .choice:hover{transform:translateY(-2px); box-shadow:0 8px 18px rgba(92,58,33,.10)}
+    .choice:active{transform:translateY(0.5px)}
+    .c-ico{width:22px; height:22px; flex:0 0 22px; opacity:.9}
+    .choice::after{
+      content:""; position:absolute; left:18px; right:18px; top:6px; height:0;
+      background:
+        radial-gradient(circle at 20% 0, rgba(169,202,209,.6) 0 4px, transparent 5px),
+        radial-gradient(circle at 40% 0, rgba(169,202,209,.45) 0 3px, transparent 4px),
+        radial-gradient(circle at 60% 0, rgba(169,202,209,.35) 0 3px, transparent 4px),
+        radial-gradient(circle at 80% 0, rgba(169,202,209,.5) 0 4px, transparent 5px);
+      transform:translateY(12px);
+      opacity:0; pointer-events:none;
+    }
+    .choice:hover::after{ animation:bubbles .8s ease-out forwards; }
+    @keyframes bubbles{
+      0%{height:0; opacity:0; transform:translateY(12px)}
+      100%{height:18px; opacity:1; transform:translateY(0)}
+    }
+
+    /* 로딩(유지) */
+    .loading{display:grid; place-items:center; gap:18px; padding:40px 0; text-align:center}
+    .pour{ width:220px; height:140px; position:relative; }
+    .bottle-svg, .glass-svg{position:absolute; inset:0}
+    .stream{
+      position:absolute; width:5px; height:70px; left:92px; top:30px;
+      background:linear-gradient(#cfae94,#b68f77);
+      border-radius:3px;
+      transform-origin:top;
+      animation:stream 1.2s ease-in-out infinite;
+      filter:drop-shadow(0 2px 0 rgba(182,143,119,.3));
+    }
+    @keyframes stream{ 0%{transform:scaleY(0)} 40%{transform:scaleY(1)} 70%{transform:scaleY(1)} 100%{transform:scaleY(0)} }
+    .glass-fill{
+      position:absolute; left:130px; bottom:24px; width:42px; height:0;
+      background:#F1E7D0;
+      border-bottom-left-radius:8px; border-bottom-right-radius:8px;
+      animation:fill 1.2s ease-in-out infinite;
+      clip-path:polygon(0 0, 100% 0, 92% 100%, 8% 100%);
+    }
+    @keyframes fill{ 0%{height:0} 60%{height:36px} 100%{height:0} }
+
+    .dots{display:inline-grid; grid-auto-flow:column; gap:8px}
+    .dot{width:10px; height:10px; border-radius:50%; background:var(--accent); opacity:.45; animation:bounce 1.2s infinite}
+    .dot:nth-child(2){animation-delay:.15s} .dot:nth-child(3){animation-delay:.3s}
+    @keyframes bounce{0%,100%{transform:translateY(0); opacity:.45} 50%{transform:translateY(-8px); opacity:1}}
+
+    /* 결과 카드 여백 살짝 확대 */
+    .result-card{
+      display:grid; grid-template-columns: 300px 1fr; gap:28px; align-items:center;
+      background:#fff; border:1px solid rgba(92,58,33,.12); border-radius:24px; padding:30px;
+      box-shadow: 0 10px 30px rgba(92,58,33,.10); margin-top:6px;
+    }
+    .bottle{width:100%; aspect-ratio:3/7; display:grid; place-items:center; border-radius:20px; background:linear-gradient(180deg, #f7f2e6 0, #f0e5cd 100%)}
+    .bottle img{max-width:85%; height:auto; display:block}
+    .r-title{font:700 28px/1.2 Pretendard; margin:0 0 12px}
+    .r-tags{display:flex; gap:8px; margin:10px 0 16px}
+    .tag{font:600 13px; color:#fff; background:#568B75; padding:6px 12px; border-radius:999px}
+    .r-desc{line-height:1.7; color:#593f28}
+    .actions{display:flex; gap:10px; margin-top:24px}
+    .btn{appearance:none; border:none; border-radius:999px; padding:12px 18px; cursor:pointer; font-weight:700}
+    .btn.primary{background:var(--btn); color:var(--btn-ink)}
+    .btn.ghost{background:transparent; border:1px solid rgba(92,58,33,.25); color:var(--ink)}
+    .btn:active{transform:translateY(1px)}
+  </style>
+</head>
+<body>
+  <div class="shell" role="dialog" aria-modal="true" aria-label="막걸리 추천 테스트">
+
+    <div class="frame">
+      <div class="topbar">
+        <div class="brand">
+          <img src="images/gnb/logo.svg" alt="" aria-hidden="true">
+          <span>한 잔 추천받기</span>
+          <span class="brand-badge" title="경상도 배지">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6 3l6-1 5 3 2 5-1 6-5 4-5-2-2-5" stroke="#7a5a43" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            경상도
+          </span>
+          <span class="hashes">
+            <span class="hash">#경상도막걸리</span>
+            <span class="hash">#취향테스트</span>
+          </span>
+        </div>
+        <button class="close" aria-label="닫기" onclick="window.history.back()">✕</button>
+      </div>
+
+      <!-- ===== 진행바 (경계 무이음: 같은 경로 + rect clip) ===== -->
+      <div class="progress" aria-hidden="true">
+        <svg class="progress-svg" viewBox="0 0 185.69 103.83" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="진행도">
+          <defs>
+            <!-- 잔 경로를 복사용으로 id 부여 -->
+            <path id="bowlPath" d="M92.84,0C46.55,0,0,3,0,13.14,0,41,11.45,68.48,32.35,86.64c15.09,13.1,36.31,17.19,60.49,17.19s45.41-4.09,60.49-17.19c20.91-18.16,32.36-45.65,32.36-73.5C185.69,3,139.13,0,92.84,0Z"/>
+            <!-- 아래서 위로 잘라줄 레벨 클립(직사각형을 scaleY로 조절) -->
+            <clipPath id="levelClip" clipPathUnits="objectBoundingBox">
+              <rect class="level" x="0" y="0" width="1" height="1"/>
+            </clipPath>
+          </defs>
+
+        <!-- 바탕 잔 (풀 채움) -->
+        <use href="#bowlPath" class="base"/>
+
+        <!-- 막걸리: 동일 경로를 막걸리색으로 채우고, 직사각형 clip으로 위에서 일부만 보이게 -->
+        <g clip-path="url(#levelClip)">
+          <use href="#bowlPath" class="liquid"/>
+        </g>
+        </svg>
+      </div>
+
+      <main class="stage">
+        <!-- Q1 -->
+        <section id="q1" class="panel show flip-in" aria-live="polite">
+          <h2 class="q-title">지금 딱 끌리는 분위기는?</h2>
+          <p class="q-desc">마음가는 걸로 골라보세요.</p>
+          <div class="choices">
+            <button class="choice" data-next="q2">
+              <svg class="c-ico" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M3 18h18M4 18l4-7 4 3 4-6 4 10" stroke="#9B7B64" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              시원한 바람 부는 야외 테이블
+            </button>
+            <button class="choice" data-next="q2">
+              <svg class="c-ico" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M5 8h14M4 12h16M6 16h12" stroke="#9B7B64" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+              잔잔한 조명, 조용한 실내
+            </button>
+            <button class="choice" data-next="q2">
+              <svg class="c-ico" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M4 18h16M5 18l2-6 3 2 3-4 3 8" stroke="#9B7B64" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              왁자지껄, 시장통 한복판
+            </button>
+          </div>
+        </section>
+
+        <!-- Q2 -->
+        <section id="q2" class="panel" aria-live="polite">
+          <h2 class="q-title">첫 모금에 바라는 느낌은?</h2>
+          <p class="q-desc">아무거나 골라도 다음으로 넘어가요.</p>
+          <div class="choices">
+            <button class="choice" data-next="loading">
+              <svg class="c-ico" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="6" stroke="#9B7B64" stroke-width="2"/><path d="M12 6v-2M12 20v-2" stroke="#9B7B64" stroke-width="2" stroke-linecap="round"/></svg>
+              톡 쏘는 청량감
+            </button>
+            <button class="choice" data-next="loading">
+              <svg class="c-ico" viewBox="0 0 24 24" fill="none"><path d="M4 14c3 3 13 3 16 0" stroke="#9B7B64" stroke-width="2" stroke-linecap="round"/><path d="M6 10c2 2 10 2 12 0" stroke="#9B7B64" stroke-width="2" stroke-linecap="round"/></svg>
+              부드럽고 달큰함
+            </button>
+            <button class="choice" data-next="loading">
+              <svg class="c-ico" viewBox="0 0 24 24" fill="none"><path d="M5 12h14" stroke="#9B7B64" stroke-width="2" stroke-linecap="round"/></svg>
+              담백하고 깔끔함
+            </button>
+          </div>
+        </section>
+
+        <!-- Loading -->
+        <section id="loading" class="panel" aria-live="polite" aria-busy="true">
+          <div class="loading">
+            <div class="pour" aria-hidden="true">
+              <svg class="bottle-svg" viewBox="0 0 220 140">
+                <path d="M70 18 h40 v18 l8 10 v46 c0 10-8 18-18 18H80c-10 0-18-8-18-18V46l8-10V18z" fill="#E6D3B3" stroke="#C9B89E"/>
+              </svg>
+              <i class="stream"></i>
+              <div class="glass-fill"></div>
+              <svg class="glass-svg" viewBox="0 0 220 140">
+                <path d="M120 60 h60 l-8 50 h-44 l-8-50z" fill="#F6EFE1" stroke="#C9B89E"/>
+              </svg>
+            </div>
+            <div style="font-weight:700">취향 분석 중…</div>
+            <div style="color:#7c5f48">막걸리 항아리에서 향을 꺼내는 중입니다</div>
+            <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+          </div>
+        </section>
+
+        <!-- Result -->
+        <section id="result" class="panel" aria-live="polite">
+          <div class="result-card">
+            <div class="bottle">
+              <img src="images/monthly-pick/makgeolli/omijasaeng.png" alt="문경주조 오미자생막걸리 병">
+            </div>
+            <div>
+              <h3 class="r-title">오늘의 한 잔: 문경주조 오미자생막걸리</h3>
+              <div class="r-tags">
+                <span class="tag">#오미자</span>
+                <span class="tag">#새콤달콤</span>
+                <span class="tag">#상큼청량</span>
+              </div>
+              <p class="r-desc">
+                연분홍빛 오미자 향과 산미가 어우러진 산뜻한 한 잔.
+                차갑게 즐기면 향이 또렷해지고, 가벼운 안주와도 잘 맞아요.
+              </p>
+              <div class="actions">
+                <button class="btn primary" onclick="window.location.href='index.html#monthly-pick'">이 술 보러가기</button>
+                <button class="btn ghost" id="restart">다시 해보기</button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <!-- 상호작용 / 진행바 동기화 -->
+  <script>
+    const panels = {};
+    document.querySelectorAll('.panel').forEach(p => panels[p.id] = p);
+
+    function setPercent(p){ document.documentElement.style.setProperty('--pct', p); }
+
+    function show(id){
+      const current = document.querySelector('.panel.show');
+      if(current){
+        current.classList.remove('show','flip-in');
+        current.classList.add('flip-out');
+        current.addEventListener('animationend', () => current.classList.remove('flip-out'), {once:true});
+      }
+      requestAnimationFrame(()=> panels[id].classList.add('show','flip-in'));
+
+      if(id === "loading" || id === "result") setPercent(100);
+      else if(id === "q1") setPercent(33);
+      else if(id === "q2") setPercent(66);
+    }
+
+    function animateBarTo33(){ setPercent(0); setTimeout(()=> setPercent(33), 80); }
+
+    document.querySelectorAll('.choice').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const next = btn.dataset.next;
+        if(next === 'loading'){ show('loading'); setTimeout(()=> show('result'), 1200); }
+        else{ show(next); }
+      });
+    });
+
+    document.getElementById('restart').addEventListener('click', ()=>{ show('q1'); animateBarTo33(); });
+    document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') window.history.back(); });
+    document.addEventListener('DOMContentLoaded', animateBarTo33);
+  </script>
+
+  <!-- 배경 버블: 항상 뒤로 -->
+  <script>
+    Math.TWO_PI = Math.PI * 2;
+    let canvas, ctx, bubbles = [];
+    const section = document.querySelector(".shell");
+
+    function Bubble(opts = {}) { this.init(opts); }
+    Bubble.prototype = {
+      init(opts = {}) {
+        this.radius = Math.random() * 7;
+        this.x = opts.x || Math.random() * canvas.width;
+        this.y = opts.y || section.offsetHeight + this.radius;
+        this.vx = Math.random() * 0.03;
+        this.vy = 1 + Math.random() * 4;
+        this.sway = 0.25 + Math.random() * 0.25;
+        this.angle = Math.random() * Math.TWO_PI;
+        this.opacity = 0.2 + Math.random() * 0.2;
+        return this;
+      },
+      update(){ this.x += Math.cos(this.angle)*this.sway; this.y -= this.vy; this.angle += this.vx;
+        if(this.y + this.radius < 0) this.init({ y: section.offsetHeight + this.radius }); },
+      draw(){ ctx.beginPath(); ctx.arc(this.x,this.y,this.radius,0,Math.TWO_PI);
+        ctx.fillStyle = `rgba(255,255,255,${this.opacity})`; ctx.fill(); },
+      render(){ this.update(); this.draw(); }
+    };
+    function loop(){ ctx.clearRect(0,0,canvas.width,canvas.height); bubbles.forEach(b=>b.render()); requestAnimationFrame(loop); }
+    function resize(){ canvas.width = section.clientWidth; canvas.height = section.clientHeight; }
+    (function init(){
+      canvas = document.createElement("canvas");
+      canvas.style.cssText = "position:absolute; top:0; left:0; width:100%; height:100%; z-index:0; pointer-events:none;";
+      section.appendChild(canvas);
+      ctx = canvas.getContext("2d");
+      resize();
+      const num = Math.round(canvas.width * 0.125);
+      for (let i=0;i<num;i++) bubbles.push(new Bubble({ x: Math.random()*canvas.width, y: Math.random()*canvas.height }));
+      window.addEventListener("resize", resize);
+      requestAnimationFrame(loop);
+    })();
+  </script>
+</body>
+</html>

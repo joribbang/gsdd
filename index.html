@@ -1,0 +1,1516 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1320" />
+  <title>경상동동</title>
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="images/favicon/favicon.svg" type="image/x-icon" />
+
+  <!-- Webfont -->
+  <link rel="stylesheet" as="style" crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" />
+
+  <!-- Base CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="css/swiper-bundle.min.css" />
+
+  <!-- Slick CSS -->
+  <link rel="stylesheet" href="css/slick.css" />
+  <link rel="stylesheet" href="css/slick-theme.css" />
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+
+</head>
+
+<body>
+  <div id="wrap">
+    <!-- GNB -->
+    <header id="gnb">
+      <div class="inner-gnb">
+        <nav class="gnb-left" aria-label="주요 메뉴 왼쪽">
+          <ul class="top">
+            <li data-idx="1"><a href="#">경상동동 소개</a></li>
+            <li data-idx="2"><a href="index.html#monthly-pick">막걸리 도감</a></li>
+            <li data-idx="3"><a href="index.html#brewery-map">양조장 지도</a></li>
+            <li data-idx="4"><a href="index.html#walk-with-taste">막걸리 여행</a></li>
+          </ul>
+        </nav>
+
+        <h1 class="gnb-logo">
+          <img src="images/gnb/logo.svg" alt="경상동동 로고" />
+        </h1>
+
+        <nav class="gnb-right" aria-label="주요 메뉴 오른쪽">
+          <ul class="top">
+            <li data-idx="5"><a href="index.html#news">막걸리 이야기</a></li> <!-- 빠졌다고 한 항목 복구 -->
+            <li data-idx="6"><a href="index.html#goods">상품 소개</a></li>
+            <li data-idx="7"><a href="index.html#pairing">술상차림</a></li>
+            <li data-idx="8"><a href="index.html#faq">술맛 길잡이</a></li>
+
+          </ul>
+        </nav>
+      </div>
+
+      <!-- ▼ 전폭 메가 메뉴(하나만 둠) -->
+      <div id="mega">
+        <div class="mega__inner">
+          <!-- 1 소개 -->
+          <section class="mm__col" data-idx="1">
+            <ul>
+              <li><a href="javascript:return false;">인사말</a></li>
+              <li><a href="javascript:return false;">비전</a></li>
+              <li><a href="javascript:return false;">로고</a></li>
+            </ul>
+          </section>
+
+          <!-- 2 막걸리 도감 -->
+          <section class="mm__col" data-idx="2">
+            <ul>
+              <li><a href="javascript:return false;">막걸리 도감</a></li>
+              <li><a href="javascript:return false;">지역별 <br> 모아보기</a></li>
+              <li><a href="javascript:return false;">재료별 <br> 모아보기</a></li>
+            </ul>
+          </section>
+
+          <!-- 3 양조장 지도 -->
+          <section class="mm__col" data-idx="3">
+            <ul>
+              <li><a href="javascript:return false;">전체 지도</a></li>
+              <li><a href="javascript:return false;">지역 선택</a></li>
+              <li><a href="javascript:return false;">체험 신청</a></li>
+            </ul>
+          </section>
+
+          <!-- 4 막걸리 여행 -->
+          <section class="mm__col" data-idx="4">
+            <ul>
+              <li><a href="javascript:return false;">로컬 맛집</a></li>
+              <li><a href="javascript:return false;">테마 코스</a></li>
+              <li><a href="javascript:return false;">축제·행사</a></li>
+            </ul>
+          </section>
+
+          <!-- 5 막걸리 이야기 -->
+          <section class="mm__col" data-idx="5">
+            <ul>
+              <li><a href="javascript:return false;">인터뷰</a></li>
+              <li><a href="javascript:return false;">칼럼</a></li>
+              <li><a href="javascript:return false;">에세이</a></li>
+              <li><a href="javascript:return false;">시음기</a></li>
+            </ul>
+          </section>
+
+          <!-- 6 막걸리 길잡이 -->
+          <section class="mm__col" data-idx="6">
+            <ul>
+              <li><a href="javascript:return false;">초보 가이드</a></li>
+              <li><a href="javascript:return false;">보관법</a></li>
+              <li><a href="javascript:return false;">원재료 <br>이해하기</a></li>
+              <li><a href="javascript:return false;">지역별 특징</a></li>
+            </ul>
+          </section>
+
+          <!-- 7 상품 소개 -->
+          <section class="mm__col" data-idx="7">
+            <ul>
+              <li><a href="javascript:return false;">둘러보기</a></li>
+              <li><a href="javascript:return false;">오프라인 <br>판매처</a></li>
+            </ul>
+          </section>
+
+          <!-- 8 술상차림 -->
+          <section class="mm__col" data-idx="8">
+            <ul>
+              <li><a href="javascript:return false;">경상도 음식</a></li>
+              <li><a href="javascript:return false;">메뉴 추천</a></li>
+              <li><a href="javascript:return false;">레시피</a></li>
+            </ul>
+          </section>
+        </div>
+      </div>
+    </header>
+
+    <!-- 메인 배너 -->
+    <section id="banner" aria-label="메인 배너">
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><img src="images/banner/banner_1.jpg" alt="배너 이미지 1" /></div>
+          <div class="swiper-slide"><img src="images/banner/banner_2.jpg" alt="배너 이미지 2" /></div>
+          <div class="swiper-slide"><img src="images/banner/banner_3.jpg" alt="배너 이미지 3" /></div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </section>
+
+    <!-- 이 달의 추천 막걸리 -->
+    <section id="monthly-pick" aria-labelledby="monthly-pick-title">
+      <h1 id="monthly-pick-title">이 달의 추천 막걸리</h1>
+
+      <div class="mp__content">
+        <!-- 좌측 텍스트 -->
+        <div class="mp__text">
+          <!-- 액티브 막걸리 -->
+          <article class="mp__text-item active">
+            <h3>문경주조 오미자생막걸리</h3>
+            <p>
+              연분홍빛 오미자색이 시선을 사로잡고,
+              <br />향긋한 오미자 향과 산미가 조화롭습니다.
+              <br />막걸리 본연의 구수함과 과일 향이 어우러져
+              <br />가볍고 부드럽게 즐기기 좋은 술입니다.
+            </p>
+            <ul class="mp__hashtag omija">
+              <li>
+               #오미자
+              </li>
+              <li>
+                #새콤달콤
+              </li>
+              <li>
+               #과일막걸리전국1호
+              </li>
+            </ul>
+            <div class="mp__text-thumb">
+              <img src="images/monthly-pick/omija.png" alt="오미자 이미지" />
+            </div>
+          </article>
+
+          <!-- 숨김: 반복 아이템 예시 -->
+          <div class="hidden">
+            <article class="mp__text-item">
+              <h3>울릉우리술 호박생막걸리</h3>
+              <p>
+                은은한 호박 향이 부드럽게 스며들고,
+                <br />곡물의 구수함과 달큰함이 조화롭습니다.
+                <br />입안 가득 퍼지는 곡물 향과 달콤한 여운으로
+                <br />가볍게 마셔도 깊이가 느껴집니다.
+              </p>
+              <ul class="mp__hashtag pumpkin">
+                <li>#호박</li>
+                <li>#달콤구수</li>
+                <li>#울릉도</li>
+              </ul>
+              <div class="mp__text-thumb">
+                <img src="images/monthly-pick/pumpkin.png" alt="호박 이미지" />
+              </div>
+            </article>
+            <article class="mp__text-item">
+              <h3>기장발효 다시마로</h3>
+              <p>
+                향긋한 바다 내음이 은근히 묻어나고,
+                <br />삼양주 발효로 완성된 깊이가 인상적입니다.
+                <br />해조류 특유의 감칠맛이 입안을 감돌며
+                <br />청정 기장의 바다 기운을 전합니다.
+              </p>
+              <ul class="mp__hashtag kelp">
+                <li>#다시마</li>
+                <li>#세계최초</li>
+                <li>#기장특산품</li>
+              </ul>
+              <div class="mp__text-thumb">
+                <img src="images/monthly-pick/kelp.png" alt="다시마 이미지" />
+              </div>
+            </article>
+            <article class="mp__text-item">
+              <h3>벗드림양조 감천딸기</h3>
+              <p>
+                잘 익은 딸기의 산뜻함이 먼저 퍼지고,
+                <br />우유 같은 은근한 부드러움이 어우러집니다.
+                <br />인공 첨가물 없이 재료 본연의 맛을 살려,
+                <br />차갑게 즐기면 상큼함이 배가됩니다.
+              </p>
+              <ul class="mp__hashtag strawberry">
+                <li>#딸기</li>
+                <li>#무첨가</li>
+                <li>#감천문화마을</li>
+              </ul>
+              <div class="mp__text-thumb">
+                <img src="images/monthly-pick/strawberry.png" alt="딸기 이미지" />
+              </div>
+            </article>
+            <article class="mp__text-item">
+              <h3>칠백주조 참참</h3>
+              <p>
+                벌꿀참외의 향긋함이 산뜻하게 번지고,
+                <br />백진주쌀이 주는 고소함이 어우러집니다.
+                <br />오양주 숙성으로 깊은 풍미를 살렸고,
+                <br />자연 단맛이 기분 좋은 여운을 남깁니다.
+              </p>
+              <ul class="mp__hashtag melon">
+                <li>#참외</li>
+                <li>#백진주쌀</li>
+                <li>#오양주</li>
+              </ul>
+              <div class="mp__text-thumb">
+                <img src="images/monthly-pick/melon.png" alt="" />
+              </div>
+            </article>
+            <article class="mp__text-item">
+              <h3>도갓집 무화과생동동주</h3>
+              <p>
+                무화과의 달큰한 향이 입안을 감싸고,
+                <br />톡톡 튀는 자연 탄산이 조화롭게 어우러집니다.
+                <br />저온 숙성한 깔끔한 청량감이 돋보이며,
+                <br />알코올 도수 6도로 가볍게 즐기기 좋습니다.
+              </p>
+              <ul class="mp__hashtag fig">
+                <li>#무화과</li>
+                <li>#저온숙성</li>
+                <li>#청량감</li>
+              </ul>
+              <div class="mp__text-thumb">
+                <img src="images/monthly-pick/fig.png" alt="무화과 이미지" />
+              </div>
+            </article>
+            <article class="mp__text-item">
+              <h3>은척양조 곶감생탁배기</h3>
+              <p>
+                곶감의 진한 단맛이 첫 모금부터 전해지고,
+                <br />은자골 누룩이 빚어낸 깊은 발효 향이 뒤따릅니다.
+                <br />부드러운 과일 풍미가 입안을 감싸며,
+                <br />은은한 단맛이 오래도록 여운을 남깁니다.
+              </p>
+              <ul class="mp__hashtag persimmon">
+                <li>#상주곶감</li>
+                <li>#숙취없음</li>
+                <li>#묵직함</li>
+              </ul>
+              <div class="mp__text-thumb">
+                <img src="images/monthly-pick/persimmon.png" alt="곶감 이미지" />
+              </div>
+            </article>
+            <article class="mp__text-item">
+              <h3>상주주조 너디호프</h3>
+              <p>
+                은근히 스며드는 바질향 뒤
+                <br />드라이한 맛이 깔끔하게 이어집니다.
+                <br />상주 찹쌀로 빚어 담백함을 살렸으며,
+                <br />부담 없는 도수로 가볍게 즐기기 좋습니다.
+              </p>
+              <ul class="mp__hashtag basil">
+                <li>#바질</li>
+                <li>#드라이막걸리</li>
+                <li>#허브향</li>
+              </ul>
+              <div class="mp__text-thumb">
+                <img src="images/monthly-pick/basil.png" alt="" />
+              </div>
+            </article>
+            <!-- 필요 시 추가 반복 -->
+          </div>
+        </div>
+
+        <!-- 우측 슬라이더 -->
+        <div class="mp__images">
+          <div class="mp__gutter-mask">
+            <div id="slide_wrap">
+              <div id="slide" class="swiper-container">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <div class="bottle"><img src="images/monthly-pick/makgeolli/omijasaeng.png" alt="문경 오미자생막걸리" />
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="bottle"><img src="images/monthly-pick/makgeolli/hobak.png" alt="울릉 호박막걸리" /></div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="bottle"><img src="images/monthly-pick/makgeolli/dashimaro.png" alt="다시마로 막걸리" /></div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="bottle"><img src="images/monthly-pick/makgeolli/gamcheon.png" alt="감천 막걸리" /></div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="bottle"><img src="images/monthly-pick/makgeolli/charmcharm.png" alt="참참 막걸리" /></div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="bottle"><img src="images/monthly-pick/makgeolli/muhwagwa.png" alt="무화과 막걸리" /></div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="bottle"><img src="images/monthly-pick/makgeolli/eunjagol.png" alt="은자골 막걸리" /></div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="bottle"><img src="images/monthly-pick/makgeolli/nerdyhope.png" alt="너디호프 막걸리" /></div>
+                  </div>
+                </div>
+
+                <!-- Controls -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 양조장 지도 -->
+    <section id="brewery-map" aria-label="양조장 지도">
+      <div class="bm__inner">
+        <div class="bm__map">
+          <img src="images/brewery-map/map.svg" alt="경상도 지도" />
+          <span id="pin-focus" aria-hidden="true"></span>
+          <span class="pin" data-slide="0" style="left:135px; top:110px;"></span><!-- 문경 -->
+          <span class="pin" data-slide="1" style="left:110px; top:195px;"></span><!-- 상주 -->
+          <span class="pin" data-slide="2" style="left:218px; top:315px;"></span><!-- 칠곡 -->
+          <span class="pin" data-slide="3" style="left:380px; top:380px;"></span><!-- 경주 -->
+          <span class="pin" data-slide="4" style="left:425px; top:435px;"></span><!-- 울산 -->
+          <span class="pin" data-slide="5" style="left:170px; top:495px;"></span><!-- 의령 -->
+          <span class="pin" data-slide="6" style="left:360px; top:570px;"></span><!-- 부산 -->
+          <span class="pin" data-slide="7" style="left:259px; top:652px;"></span><!-- 거제 -->
+
+          <ul class="place" aria-hidden="true">
+            <li>지역1</li>
+            <li>지역2</li>
+          </ul>
+        </div>
+
+        <div class="map_slide">
+          <h1>경상도 전역의 막걸리 양조장을 한눈에 확인해보세요.</h1>
+          <h2>지도를 클릭하면 양조장 정보를 볼 수 있습니다.</h2>
+          <section class="center slider" aria-label="양조장 카드 슬라이더">
+            <!-- place-1 -->
+            <article class="place-1">
+              <div class="map__images">
+                <img src="images/brewery-map/place/place-1.jpg" alt="문경주조 전경" />
+              </div>
+              <div class="map__content">
+                <div class="map__makgeolli">
+                  <img src="images/brewery-map/place/makgeolli-1.png" alt="오미자 생막걸리" />
+                </div>
+                <div class="map__text">
+                  <strong>문경 문경주조</strong>
+                  <p>오미자 생막걸리부터 홉 증류주까지, 전통 방식과 실험 정신을 담아 빚는 문경의 양조장입니다.</p>
+                  <div class="map__text-pin">
+                    <div class="map__pin-image">
+                      <img src="images/brewery-map/place/Map pin.svg" alt="" aria-hidden="true" />
+                    </div>
+                    <p>(36903) 경상북도 문경시 동로면 노은1길 49-15 문경주조</p>
+                  </div>
+                  <div class="map__text-phone">
+                    <div class="map__phone-image">
+                      <img src="images/brewery-map/place/Phone.svg" alt="" aria-hidden="true" />
+                    </div>
+                    <p>010-2227-3435</p>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- place-2 -->
+            <article class="place-2">
+              <div class="map__images">
+                <img src="images/brewery-map/place/place-2.jpg" alt="은척양조장 전경" />
+              </div>
+              <div class="map__content">
+                <div class="map__makgeolli">
+                  <img src="images/brewery-map/place/makgeolli-2.png" alt="은척양조장 대표 제품" />
+                </div>
+                <div class="map__text">
+                  <strong>상주 은척양조장</strong>
+                  <p>전통 누룩과 지역 농산물로 술을 빚고, 다양한 체험을 운영하는 정원이 아름다운 양조장입니다.</p>
+                  <div class="map__text-pin">
+                    <div class="map__pin-image">
+                      <img src="images/brewery-map/place/Map pin.svg" alt="" aria-hidden="true" />
+                    </div>
+                    <p>(37104) 경상북도 상주시 은척면 봉중2길 16-9</p>
+                  </div>
+                  <div class="map__text-phone">
+                    <div class="map__phone-image">
+                      <img src="images/brewery-map/place/Phone.svg" alt="" aria-hidden="true" />
+                    </div>
+                    <p>054-541-6409</p>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- place-3 -->
+            <article class="place-3">
+              <div class="map__images">
+                <img src="images/brewery-map/place/place-3.jpg" alt="칠곡양조장 전경" />
+              </div>
+              <div class="map__content">
+                <div class="map__makgeolli">
+                  <img src="images/brewery-map/place/makgeolli-3.png" alt="칠곡양조장 대표 제품" />
+                </div>
+                <div class="map__text">
+                  <strong>칠곡 칠곡양조장</strong>
+                  <p>100년 넘게 전통을 이어온 4대 양조장으로, 자연 발효 방식만을 고집하는 칠곡의 대표 양조장입니다.</p>
+                  <div class="map__text-pin">
+                    <div class="map__pin-image">
+                      <img src="images/brewery-map/place/Map pin.svg" alt="" aria-hidden="true" />
+                    </div>
+                    <p>(39864) 경북 칠곡군 지천면 신동로 152 칠곡양조장</p>
+                  </div>
+                  <div class="map__text-phone">
+                    <div class="map__phone-image">
+                      <img src="images/brewery-map/place/Phone.svg" alt="" aria-hidden="true" />
+                    </div>
+                    <p>054-972-2102</p>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- place-4 -->
+            <article class="place-4">
+              <div class="map__images">
+                <img src="images/brewery-map/place/place-4.jpg" alt="교촌도가 전경" />
+              </div>
+              <div class="map__content">
+                <div class="map__makgeolli">
+                  <img src="images/brewery-map/place/makgeolli-4.png" alt="교촌도가 대표 제품" />
+                </div>
+                <div class="map__text">
+                  <strong>경주 교촌도가</strong>
+                  <p>신라 궁중법주의 전통을 이어, 직접 기른 쌀로 100일간 숙성해 소량 생산하는 경주의 양조장입니다.</p>
+                  <div class="map__text-pin">
+                    <div class="map__pin-image">
+                      <img src="images/brewery-map/place/Map pin.svg" alt="" aria-hidden="true" />
+                    </div>
+                    <p>(38170) 경상북도 경주시 교촌안길 25</p>
+                  </div>
+                  <div class="map__text-phone">
+                    <div class="map__phone-image">
+                      <img src="images/brewery-map/place/Phone.svg" alt="" aria-hidden="true" />
+                    </div>
+                    <p>010-2227-3435</p>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- place-5 -->
+            <article class="place-5">
+              <div class="map__images">
+                <img src="images/brewery-map/place/place-5.jpg" alt="복순도가 전경" />
+              </div>
+              <div class="map__content">
+                <div class="map__makgeolli">
+                  <img src="images/brewery-map/place/makgeolli-5.png" alt="복순도가 대표 제품" />
+                </div>
+                <div class="map__text">
+                  <strong>울산 복순도가</strong>
+                  <p>전통 발효의 가치를 바탕으로, 자연 속에서 사람과 술이 함께 익어가는 과정을 이어가는 양조장입니다.</p>
+                  <div class="map__text-pin">
+                    <div class="map__pin-image">
+                      <img src="images/brewery-map/place/Map pin.svg" alt="" aria-hidden="true" />
+                    </div>
+                    <p>(44903) 울산 울주군 상북면 향산동길 48</p>
+                  </div>
+                  <div class="map__text-phone">
+                    <div class="map__phone-image">
+                      <img src="images/brewery-map/place/Phone.svg" alt="" aria-hidden="true" />
+                    </div>
+                    <p>1577-6746</p>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- place-6 -->
+            <article class="place-6">
+              <div class="map__images">
+                <img src="images/brewery-map/place/place-6.jpg" alt="궁류양조장 전경" />
+              </div>
+              <div class="map__content">
+                <div class="map__makgeolli">
+                  <img src="images/brewery-map/place/makgeolli-6.png" alt="궁류양조장 대표 제품" />
+                </div>
+                <div class="map__text">
+                  <strong>의령 궁류양조장</strong>
+                  <p>2대째 가업을 잇는 궁류양조장은 직접 재배한 국산 원료로 첨가물을 줄여 담백한 막걸리를 빚습니다.</p>
+                  <div class="map__text-pin">
+                    <div class="map__pin-image">
+                      <img src="images/brewery-map/place/Map pin.svg" alt="" aria-hidden="true" />
+                    </div>
+                    <p>(52115) 경상남도 의령군 궁류면 청정로5길 6</p>
+                  </div>
+                  <div class="map__text-phone">
+                    <div class="map__phone-image">
+                      <img src="images/brewery-map/place/Phone.svg" alt="" aria-hidden="true" />
+                    </div>
+                    <p>010-2227-3435</p>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- place-7 -->
+            <article class="place-7">
+              <div class="map__images">
+                <img src="images/brewery-map/place/place-7.jpg" alt="금정산성막걸리 전경" />
+              </div>
+              <div class="map__content">
+                <div class="map__makgeolli">
+                  <img src="images/brewery-map/place/makgeolli-7.png" alt="금정산성막걸리 대표 제품" />
+                </div>
+                <div class="map__text">
+                  <strong>부산 금정산성막걸리</strong>
+                  <p>발로 누룩을 밟는 전통 방식만을 고수하며, 진한 산미와 점성이 살아있는 막걸리를 빚는 양조장입니다.</p>
+                  <div class="map__text-pin">
+                    <div class="map__pin-image">
+                      <img src="images/brewery-map/place/Map pin.svg" alt="" aria-hidden="true" />
+                    </div>
+                    <p>(46237) 부산광역시 금정구 금성동 554-1</p>
+                  </div>
+                  <div class="map__text-phone">
+                    <div class="map__phone-image">
+                      <img src="images/brewery-map/place/Phone.svg" alt="" aria-hidden="true" />
+                    </div>
+                    <p>051-517-0202</p>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- place-8 -->
+            <article class="place-8">
+              <div class="map__images">
+                <img src="images/brewery-map/place/place-8.jpg" alt="성포양조장 전경" />
+              </div>
+              <div class="map__content">
+                <div class="map__makgeolli">
+                  <img src="images/brewery-map/place/makgeolli-8.png" alt="성포양조장 대표 제품" />
+                </div>
+                <div class="map__text">
+                  <strong>거제 성포양조장</strong>
+                  <p>청정 거제에서 자란 쌀과 암반수로 순수한 곡물 맛을 살린 믿음직한 술을 빚는 양조장입니다.</p>
+                  <div class="map__text-pin">
+                    <div class="map__pin-image">
+                      <img src="images/brewery-map/place/Map pin.svg" alt="" aria-hidden="true" />
+                    </div>
+                    <p>(53275) 경상남도 거제시 사등면 지석3길 3</p>
+                  </div>
+                  <div class="map__text-phone">
+                    <div class="map__phone-image">
+                      <img src="images/brewery-map/place/Phone.svg" alt="" aria-hidden="true" />
+                    </div>
+                    <p>0507-1358-5134</p>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <!-- 술맛 따라 걷는 경상도 -->
+    <section id="walk-with-taste" aria-labelledby="walk-with-taste-title">
+      <div class="inner-walk-with-taste">
+        <h2 id="walk-with-taste-title">술맛 따라 걷는 경상도</h2>
+
+        <div class="tab-wrap">
+          <!-- 탭 -->
+
+          <ul class="tab-nav" role="tablist">
+            <li class="on" data-tab="taste" role="tab" aria-controls="taste" aria-selected="true">잔 들기 좋은 맛집</li>
+            <li data-tab="course" role="tab" aria-controls="course" aria-selected="false">막걸리 여행 코스</li>
+          </ul>
+
+          <!-- 패널들 -->
+          <div class="tab-panels">
+            <div id="taste" class="tab-panel show" role="tabpanel" aria-labelledby="잔 들기 좋은 맛집">
+              <article class="taste-card">
+                <div class="tc__line"></div>
+                <p class="tc__region">포항 문덕</p>
+                <p class="tc__title">복실이네집</p>
+                <p class="tc__desc">외지인보다 동네 사람이 더 많은 현지인 맛집</p>
+                <p class="tc__date">2025. 09. 22</p>
+                <div class="tc__thumb"><img src="images/walk-with-taste/taste/taste-1.jpg" alt="복실이네집" /></div>
+              </article>
+
+              <article class="taste-card">
+                <div class="tc__line"></div>
+                <p class="tc__region">경주 중앙시장</p>
+                <p class="tc__title">순자네 실비집</p>
+                <p class="tc__desc">시장 사람들 다 아는 막걸리 명당</p>
+                <p class="tc__date">2025. 08. 31</p>
+                <div class="tc__thumb"><img src="images/walk-with-taste/taste/taste-2.jpg" alt="순자네 실비집" /></div>
+              </article>
+
+              <article class="taste-card">
+                <div class="tc__line"></div>
+                <p class="tc__region">의령 봉수면</p>
+                <p class="tc__title">가례식육식당</p>
+                <p class="tc__desc">할머니가 내어주시는 막걸리는 괜히 더 맛있다</p>
+                <p class="tc__date">2025. 08. 22</p>
+                <div class="tc__thumb"><img src="images/walk-with-taste/taste/taste-3.jpg" alt="가례식육식당" /></div>
+              </article>
+            </div>
+
+            <div id="course" class="tab-panel" role="tabpanel" aria-labelledby="막걸리 여행 코스">
+              <article class="taste-card">
+                <div class="tc__line"></div>
+                <p class="cc__region">의령</p>
+                <p class="tc__title">부자되는 막걸리 한 바퀴</p>
+                <p class="tc__desc">궁류양조장에서 한 잔, 솥바위 지나 부잣길을 걷다</p>
+                <p class="tc__date">2025. 09. 18</p>
+                <div class="tc__thumb"><img src="images/walk-with-taste/course/course-1.jpg" alt="의령 코스" /></div>
+              </article>
+
+              <article class="taste-card">
+                <div class="tc__line"></div>
+                <p class="cc__region">거제</p>
+                <p class="tc__title">들과 바다, 그리고 한 사발</p>
+                <p class="tc__desc">논밭 지나 성포양조장, 바람의 언덕에 기대어</p>
+                <p class="tc__date">2025. 06. 05</p>
+                <div class="tc__thumb"><img src="images/walk-with-taste/course/course-2.jpg" alt="거제 코스" /></div>
+              </article>
+
+              <article class="taste-card">
+                <div class="tc__line"></div>
+                <p class="cc__region">울주</p>
+                <p class="tc__title">숲속 발효 여행</p>
+                <p class="tc__desc">간월재 트레킹 후 마시는 자연발효 막걸리 한 잔</p>
+                <p class="tc__date">2025. 05. 28</p>
+                <div class="tc__thumb"><img src="images/walk-with-taste/course/course-3.jpg" alt="울주 코스" /></div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 한 잔의 기록 -->
+    <section id="news" aria-labelledby="news-title">
+      <div class="inner-news">
+        <section class="story" aria-label="막걸리 소식">
+          <div class="story__title">
+            <p class="story__subtitle">술술 읽히는 막걸리 소식</p>
+            <h2 id="news-title">한 잔의 기록</h2>
+            <p class="story__desc">경상도 막걸리 이야기</p>
+          </div>
+
+          <ul class="story__list" data-aos="fade-up" data-aos-delay="0">
+            <li class="story-card is-active">
+              <img class="story-card__thumb" src="images/story/card-1.jpg" alt="인터뷰 썸네일" />
+              <div class="story-card__body">
+                <div class="story-card__top">
+                  <span class="story-card__tag tag--green">인터뷰</span>
+                  <h3 class="story-card__title">“막걸리는 결국 사람이 빚는 맛”</h3>
+                </div>
+                <p class="story-card__excerpt">
+                  누룩 냄새와 쌀 씻는 물소리로 하루가 시작된다. 3대째 막걸리를 빚고 있는 김천 고담양조장의 김 대표는
+                  "막걸리는 땅과 사람, 시간이 만드는 술"이라 말한다. 경상도의 기후, 지역 쌀, 그리고 그를 지켜낸 사람의 손끝에 담긴 술맛…
+                </p>
+                <time class="story-card__date" datetime="2025-09-14">2025. 09. 14</time>
+              </div>
+            </li>
+
+            <li class="story-card">
+              <img class="story-card__thumb" src="images/story/card-2.jpg" alt="에세이 썸네일" />
+              <div class="story-card__body">
+                <div class="story-card__top">
+                  <span class="story-card__tag tag--red">에세이</span>
+                  <h3 class="story-card__title">흙냄새 나는 술을 좋아하게 된 이유</h3>
+                </div>
+                <p class="story-card__excerpt">
+                  할머니 댁 마당에 옹기들이 줄지어 놓여 있던 기억이 난다. 뚜껑을 열면 퍼지던 그 구수한 향, 손끝으로 만졌던 거친 질감, 그 안에서 익어가던 술은
+                  어느 순간 내게 추억이자 위안이 되었다. 요즘 막걸리를 마실 때면 그때 그 장독대 풍경이...
+                </p>
+                <time class="story-card__date" datetime="2025-07-27">2025. 07. 27</time>
+              </div>
+            </li>
+
+            <li class="story-card">
+              <img class="story-card__thumb" src="images/story/card-3.jpg" alt="시음기 썸네일" />
+              <div class="story-card__body">
+                <div class="story-card__top">
+                  <span class="story-card__tag tag--blue">시음기</span>
+                  <h3 class="story-card__title">“달콤한데 밉지 않아” 대구탁주합동 〈불로썸생막걸리〉 시음기</h3>
+                </div>
+                <p class="story-card__excerpt">첫 잔을 들이켰을 때 코끝을 감싸던 건 익은 배 향기였다. 혀끝에 닿는 질감은 가볍고도 부드러웠고, 단맛이 돌지만...</p>
+                <time class="story-card__date" datetime="2025-06-12">2025. 06. 12</time>
+              </div>
+            </li>
+
+            <li class="story-card">
+              <img class="story-card__thumb" src="images/story/card-4.jpg" alt="칼럼 썸네일" />
+              <div class="story-card__body">
+                <div class="story-card__top">
+                  <span class="story-card__tag tag--brown">칼럼</span>
+                  <h3 class="story-card__title">1,000원짜리 술이 12,000원이 되기까지</h3>
+                </div>
+                <p class="story-card__excerpt">몇 해 전만 해도 편의점 냉장고 한 켠에 조용히 놓여 있던 막걸리 한 병의 값은 천 원 남짓이었다. 하지만 요즘은...</p>
+                <time class="story-card__date" datetime="2025-05-05">2025. 05. 05</time>
+              </div>
+            </li>
+          </ul>
+        </section>
+      </div>
+    </section>
+
+    <!-- 굿즈 -->
+
+<!-- 굿즈시작 -->
+<div id="goods">
+  <div class="inner_goods">
+    <h1>경상도 막걸리, 일상에 머물다</h1>
+    <h2>양조장 및 음식점 현장 판매 상품 목록</h2>
+    <p class="goods_desc">
+      경상동동에 소개된 양조장과 맛집에서는,
+      경상도 막걸리의 정취를 담은 다양한 상품들을 만나보실 수 있습니다.<br>
+      판매 수익은 전액 경상도 지역 양조장의 지속 가능한 운영 지원과
+      전통 막걸리 관련 체험·교육 콘텐츠 개발, 지역 행사 참여 등에 쓰이고 있습니다.
+    </p>
+
+    <div class="goods_grid">
+      <!-- 1 -->
+      <div class="card_aos"
+           data-aos="fade-up"
+           data-aos-delay="0"
+           data-aos-duration="600"
+           data-aos-easing="ease-out"
+           data-aos-offset="100"
+           data-aos-anchor-placement="top-bottom">
+        <div class="goods_card">
+          <div class="card_inner">
+            <img src="images/goods/goods-1.jpg" alt="핀뱃지">
+            <div class="goods_name">핀뱃지</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2 -->
+      <div class="card_aos"
+           data-aos="fade-up"
+           data-aos-delay="100"
+           data-aos-duration="600"
+           data-aos-easing="ease-out"
+           data-aos-offset="100"
+           data-aos-anchor-placement="top-bottom">
+        <div class="goods_card">
+          <div class="card_inner">
+            <img src="images/goods/goods-2.jpg" alt="달력">
+            <div class="goods_name">달력</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <div class="card_aos"
+           data-aos="fade-up"
+           data-aos-delay="200"
+           data-aos-duration="600"
+           data-aos-easing="ease-out"
+           data-aos-offset="100"
+           data-aos-anchor-placement="top-bottom">
+        <div class="goods_card">
+          <div class="card_inner">
+            <img src="images/goods/goods-3.jpg" alt="코스터">
+            <div class="goods_name">코스터</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4 -->
+      <div class="card_aos"
+           data-aos="fade-up"
+           data-aos-delay="300"
+           data-aos-duration="600"
+           data-aos-easing="ease-out"
+           data-aos-offset="100"
+           data-aos-anchor-placement="top-bottom">
+        <div class="goods_card">
+          <div class="card_inner">
+            <img src="images/goods/goods-4.jpg" alt="에코백">
+            <div class="goods_name">에코백</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5 -->
+      <div class="card_aos"
+           data-aos="fade-up"
+           data-aos-delay="400"
+           data-aos-duration="600"
+           data-aos-easing="ease-out"
+           data-aos-offset="100"
+           data-aos-anchor-placement="top-bottom">
+        <div class="goods_card">
+          <div class="card_inner">
+            <img src="images/goods/goods-5.jpg" alt="테이스팅북">
+            <div class="goods_name">테이스팅북</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6 -->
+      <div class="card_aos"
+           data-aos="fade-up"
+           data-aos-delay="500"
+           data-aos-duration="600"
+           data-aos-easing="ease-out"
+           data-aos-offset="100"
+           data-aos-anchor-placement="top-bottom">
+        <div class="goods_card">
+          <div class="card_inner">
+            <img src="images/goods/goods-6.jpg" alt="키링">
+            <div class="goods_name">키링</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 굿즈끝 -->
+
+
+    <!-- 페어링 -->
+    <section id="pairing" aria-labelledby="pairing-title">
+      <div class="inner-pairing">
+        <h1 data-aos="fade-up" 
+       data-aos-duration="800" id="pairing-title">막걸리와 참 잘 어울리는 경상도 음식</h1>
+        <p data-aos="fade-up" 
+               data-aos-delay="300"
+       data-aos-duration="800">
+          입 안 가득 퍼지는 정겨운 맛. <br />
+          막걸리와 함께하면 더욱 특별해지는 경상도 음식들.
+        </p>
+      </div>
+
+      <section class="pairing_card" aria-label="페어링 카드">
+        <div class="pairing__track">
+          <!-- 1 -->
+          <article class="pairing__item"
+            style="--bottle:url('../images/pairing/pairing-1.jpg'); --dish:url('../images/pairing/dish-1.jpg');">
+            <div class="pairing__overlay"></div>
+            <div class="pairing__txt">
+              <h3 class="drink-title">
+                <span class="drink">부산 매료막걸리</span>
+                <span class="dish-line"><span class="dish">부산 어묵탕</span></span>
+              </h3>
+              <div class="desc-wrap">
+                <p class="desc">
+                  묵직한 질감과 은은한 단맛을 가진 매료가 <br />
+                  담백한 어묵탕과 만나 맛의 균형을 이루고 <br />
+                  따뜻한 국물은 막걸리의 깊은 여운을 더해줍니다.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <!-- 2 -->
+          <article class="pairing__item"
+            style="--bottle:url('../images/pairing/pairing-2.jpg'); --dish:url('../images/pairing/dish-2.jpg');">
+            <div class="pairing__overlay"></div>
+            <div class="pairing__txt">
+              <h3 class="drink-title">
+                <span class="drink">안동 바랑</span>
+                <span class="dish-line"><span class="dish">안동 찜닭</span></span>
+              </h3>
+              <div class="desc-wrap">
+                <p class="desc">바랑의 맑은 풍미가<br />감칠맛 강한 안동 찜닭과 어우러지며<br />무게감을 덜어주고 전체적인 맛의 밸런스를 맞춰줍니다.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- 3 -->
+          <article class="pairing__item"
+            style="--bottle:url('../images/pairing/pairing-3.jpg'); --dish:url('../images/pairing/dish-3.jpg');">
+            <div class="pairing__overlay"></div>
+            <div class="pairing__txt">
+              <h3 class="drink-title">
+                <span class="drink">대구 포그막</span>
+                <span class="dish-line"><span class="dish">상주 크림치즈 곶감말이</span></span>
+              </h3>
+              <div class="desc-wrap">
+                <p class="desc">곶감의 쫀득한 단맛과 크림치즈의 부드러움이 <br />포그막의 산뜻한 산미와 어우러져 <br />입 안을 가볍고 달콤하게 마무리해줍니다.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- 4 -->
+          <article class="pairing__item"
+            style="--bottle:url('../images/pairing/pairing-4.jpg'); --dish:url('../images/pairing/dish-4.jpg');">
+            <div class="pairing__overlay"></div>
+            <div class="pairing__txt">
+              <h3 class="drink-title">
+                <span class="drink">문경 문희</span>
+                <span class="dish-line"><span class="dish">문경 산채비빔밥</span></span>
+              </h3>
+              <div class="desc-wrap">
+                <p class="desc">담백한 나물과 고추장이 어우러진 산채비빔밥에 <br />문희의 은은한 단맛과 산미가 깔끔하게 스며들며 <br />맛의 흐름을 부드럽고 조화롭게 잡아줍니다.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <!-- 5 -->
+          <article class="pairing__item"
+            style="--bottle:url('../images/pairing/pairing-5.jpg'); --dish:url('../images/pairing/dish-5.jpg');">
+            <div class="pairing__overlay"></div>
+            <div class="pairing__txt">
+              <h3 class="drink-title">
+                <span class="drink">함양 탁여현</span>
+                <span class="dish-line"><span class="dish">함양 흑돼지 수육</span></span>
+              </h3>
+              <div class="desc-wrap">
+                <p class="desc">고소하고 기름진 진한 흑돼지 수육에 <br />탁여현의 묵직한 바디감과 산미가 느끼함을 덜어줘 <br />입안이 무거워질 틈 없이 술이 자연스럽게 넘어갑니다.
+                </p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+    </section>
+
+    <!-- 테스트 -->
+    <section id="test" aria-labelledby="test-title">
+      <div class="inner-test">
+        <h1 id="test-title">나한테 딱 맞는 경상도 막걸리는?</h1>
+        <h2>입맛과 취향에 따라 추천하는 경상도 막걸리</h2>
+        <a href="test.html">
+          <p>한 잔 추천받기</p>
+          <img src="images/test/test-button.svg" alt="테스트 시작 버튼" />
+          <div class="liquid"></div>
+        </a>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" aria-labelledby="faq-title">
+      <h2 id="faq-title" class="faq__title" data-aos="fade-up" 
+       data-aos-duration="800">처음 만나는 막걸리 Q&amp;A</h2>
+      <ul class="faq">
+        <li class="faq__item">
+          <button class="faq__q" aria-expanded="false">
+            막걸리마다 맛이 이렇게 다른 이유가 뭐예요?
+            <svg class="arrow" width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
+              <path d="M1 6l8 8 8-8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg>
+          </button>
+          <div class="faq__a" hidden>
+            막걸리는 브랜드마다 맛이 꽤 다릅니다. <br /><br />
+            어떤 것은 달고, 어떤 것은 시며, 또 어떤 것은 묵직하고 텁텁한 맛을 냅니다. 이렇게 다양한 맛이 나는 이유는 사용하는 쌀의 종류, 누룩과 효모, 발효 기간 등 양조 방식이 양조장마다
+            제각각이기 때문입니다.
+            <br /><br />
+            찹쌀을 쓰면 부드럽고 달콤한 맛이 나고, 멥쌀은 담백한 맛을 냅니다. 누룩과 효모에 따라 산미, 단맛, 탄산감도 달라집니다. 발효 기간이 짧으면 단맛이 강하고, 오래 발효할수록 신맛이 도드라지며
+            자연 탄산도 생성됩니다.
+            또한 살균 여부나 감미료 사용 여부도 맛에 영향을 줍니다. 살균 막걸리는 깔끔한 맛이 특징이며, 생막걸리는 보관이 까다로운 대신 살아 있는 맛의 변화를 느낄 수 있습니다.
+            <br /><br />
+            이처럼 막걸리는 만드는 사람과 방식에 따라 맛이 크게 달라지므로, 본인에게 맞는 막걸리를 찾아가는 재미도 함께 누릴 수 있습니다.
+          </div>
+        </li>
+
+        <li class="faq__item">
+          <button class="faq__q" aria-expanded="false">
+            막걸리는 흔들고 마셔야 하나요? 가만히 따라야 하나요?
+            <svg class="arrow" width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
+              <path d="M1 6l8 8 8-8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg>
+          </button>
+          <div class="faq__a" hidden>
+            막걸리는 병 안에 고형물(미세한 쌀 입자)이 가라앉아 있는 탁주입니다. <br /><br />
+            그래서 마시기 전에 가볍게 섞어주는 것이 일반적입니다. 하지만 무조건 ‘세게 흔들면’ 안 됩니다.
+            강하게 흔들 경우, 특히 발효가 덜 끝난 생막걸리는 병 안에서 압력이 높아져 거품이 터지거나 넘칠 수 있습니다. 따라서 병을 한두 번 부드럽게 천천히 돌려주는 방식이 안전하고 좋습니다.
+            <br /><br />또한 취향에 따라 윗부분의 맑은 술만 따라 마시는 사람도 있습니다. 이 경우 막걸리 특유의 텁텁함 없이 산뜻한 맛을 즐길 수 있습니다. 반대로 바닥의 걸쭉한 부분까지 잘
+            섞어 마시면 보다 진한 맛과 풍부한 식감을 느낄 수 있습니다.
+            <br /><br />결론적으로, 막걸리는 ‘살살 섞어 마시는 술’이며, 섞는 정도는 자신의 취향에 따라 조절해도 좋습니다.
+          </div>
+        </li>
+
+        <li class="faq__item">
+          <button class="faq__q" aria-expanded="false">
+            막걸리 보관은 어떻게 하는 게 가장 좋을까요?
+            <svg class="arrow" width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
+              <path d="M1 6l8 8 8-8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg>
+          </button>
+          <div class="faq__a" hidden>
+            막걸리는 되도록 구입 즉시 냉장 보관하는 것이 가장 좋습니다. <br /><br />
+            특히 살균하지 않은 생막걸리는 병 속에 효모가 살아 있어 실온에 두면 발효가 계속 진행되고, 맛이 변하거나 병이 터질 위험이 있습니다.
+            살균 막걸리는 상대적으로 안정적이지만, 그래도 직사광선과 고온을 피해 냉장 보관하는 것이 안전합니다. 막걸리는 냉장 상태에서도 천천히 발효가 진행되기 때문에, 가급적 유통기한 내에 빨리 마시는
+            것이 가장 좋습니다.
+            또한 병을 눕히면 내용물이 병마개를 자극할 수 있으니, 세워서 보관하는 것을 추천드립니다.
+            <br /><br />정리하자면, “살균 여부와 관계없이, 막걸리는 무조건 세워서 냉장 보관하는 게 가장 안전하고 맛있습니다.”
+          </div>
+        </li>
+
+        <li class="faq__item">
+          <button class="faq__q" aria-expanded="false">
+            막걸리에 탄산 있는 것도 있고, 없는 것도 있던데 왜 그런가요?
+            <svg class="arrow" width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
+              <path d="M1 6l8 8 8-8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg>
+          </button>
+          <div class="faq__a" hidden>
+            막걸리의 탄산감은 주로 발효 과정에서 자연스럽게 생기는 이산화탄소 때문입니다.            <br /><br />
+ 생막걸리는 효모가 살아 있어서 병 안에서 발효가 계속되며 자연 탄산이 생성됩니다. 이 때문에 생막걸리는 열면 톡
+            하고 소리가 나거나, 부드러운 탄산감이 느껴지곤 합니다.            <br /><br />
+
+            반면, 살균 막걸리는 발효를 멈추기 위해 가열 처리를 하므로, 탄산이 거의 없습니다. 또한 일부 제품은 발효 탄산이 아니라, 탄산을 인위적으로 첨가해서 청량감을 준 경우도 있습니다.
+            즉, 막걸리에 탄산이 있는지 없는지는 → 살균 여부, → 자연 발효의 진행 정도, → 탄산 첨가 유무에 따라 달라집니다.
+                      <br /><br />
+  자연 탄산 특유의 부드러운 쏘는 맛을 좋아하신다면, 생막걸리를 시원하게 해서 드시는 걸 추천드립니다.
+          </div>
+        </li>
+
+        <li class="faq__item">
+          <button class="faq__q" aria-expanded="false">
+            마트에서 산 막걸리랑 양조장에서 산 막걸리, 뭐가 달라요?
+            <svg class="arrow" width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
+              <path d="M1 6l8 8 8-8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg>
+          </button>
+          <div class="faq__a" hidden>
+            마트에서 판매되는 막걸리는 대부분 살균처리된 제품입니다.             <br /><br />
+살균을 하면 효모가 죽기 때문에 발효가 멈추고 유통기한이 길어지며, 상온 유통도 어느 정도 가능해집니다. 맛은 보다 깔끔하고 안정적인
+            대신, 생막걸리에 비해 깊이와 풍미가 다소 줄어들 수 있습니다.
+                      <br /><br />
+  반면, 양조장에서 직접 사는 막걸리는 대부분 살균하지 않은 생막걸리입니다. 효모가 살아 있어 시간에 따라 맛이 계속 변화하며, 막걸리 본연의 풍부한 향과 텍스처를 더 잘 느낄 수 있습니다.
+            하지만 보관이 까다롭고 유통기한이 짧아, 냉장 상태에서 빠르게 소비해야 합니다.
+                      <br /><br />
+  요약하자면, 마트 막걸리는 안정적이고 깔끔한 맛, 양조장 막걸리는 신선하고 개성 있는 맛을 즐길 수 있습니다. 취향과 상황에 따라 선택해 보시면 좋습니다!
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer">
+      <div class="footer-inner">
+        <!-- left -->
+        <div class="footer-col footer-brand">
+          <img class="footer-logo" src="images/footer/f-logo.svg" alt="경상동동 로고">
+
+          <p class="sns-title">소셜네트워크</p>
+          <ul class="sns-list" aria-label="소셜네트워크">
+            <li>
+              <a class="sns" href="javascript:return false;" aria-label="Facebook"
+                style="--icon-brown:url('../images/footer/fb.png'); --icon-color:url('../images/footer/fb-hover.png');"></a>
+            </li>
+            <li>
+              <a class="sns" href="javascript:return false;" aria-label="Instagram"
+                style="--icon-brown:url('../images/footer/ig.png'); --icon-color:url('../images/footer/ig-hover.png');"></a>
+            </li>
+            <li>
+              <a class="sns" href="javascript:return false;" aria-label="YouTube"
+                style="--icon-brown:url('../images/footer/yt.png'); --icon-color:url('../images/footer/yt-hover.png');"></a>
+            </li>
+          </ul>
+
+          <p class="copy">© 2025 Gyeongsangdongdong. All Rights Reserved.</p>
+        </div>
+
+        <!-- right -->
+        <div class="footer-col footer-info">
+          <div class="footer-heading">막걸리 한 잔에 담은 경상도</div>
+
+          <div class="footer-location">
+            <h4 class="title">위치</h4>
+            <p>경상북도 안동시 누룽길 27<br>(옥동 428-3번지) 경상동동</p>
+          </div>
+
+          <div class="footer-contact">
+            <h4 class="title">연락처</h4>
+            <div class="contact-row">
+              <span class="label">TEL</span>
+              <span class="value">054-745-9288</span>
+            </div>
+            <div class="contact-row">
+              <span class="label">EMAIL</span>
+              <span class="value">contact@gsdd.com</span>
+            </div>
+          </div>
+
+          <div class="footer-sponsor">
+            <h4 class="title">후원 및 협력</h4>
+            <div class="sponsor-logos">
+              <img src="images/footer/coop-1.svg" alt="농협축산식품">
+              <img src="images/footer/coop-2.svg" alt="한국전통민속주협회">
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="js/slick.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+
+  <!-- AOS -->
+  <script>
+    AOS.init({
+      duration: 800,
+      easing: 'ease-out',
+      offset: 80,          // 살짝 내려왔을 때 발동
+      once: false,         
+      anchorPlacement: 'top-bottom'
+    });
+  </script>
+
+
+
+  <!-- Swiper: 배너 -->
+  <script>
+    const bannerSwiper = new Swiper(".mySwiper", {
+      direction: "vertical",
+      speed: 1200, // 애니메이션 속도 (기본 300ms)
+      pagination: { el: ".swiper-pagination", clickable: true },
+      autoplay: { delay: 3000, disableOnInteraction: false },
+      loop: true
+    });
+  </script>
+
+  <!-- Swiper: 이달의 픽(병 슬라이드) -->
+  <script>
+const pickSwiper = new Swiper("#slide.swiper-container", {
+  slidesPerView: 5,
+  spaceBetween: 0,
+  centeredSlides: true,
+  loop: true,
+  observer: true,
+  observeParents: true,
+  watchSlidesProgress: true,
+
+  pagination: {
+    el: "#slide .swiper-pagination",
+    clickable: true,
+    // ★ bullet 안에 fill 바 삽입
+    renderBullet: (index, className) =>
+      `<span class="${className}"><span class="bullet__fill"></span></span>`
+  },
+  navigation: {
+    nextEl: "#slide .swiper-button-next",
+    prevEl: "#slide .swiper-button-prev"
+  }
+});
+
+// ★ 방향 애니메이션 상태 클래스 토글
+function syncBulletAnim(sw) {
+  const bullets = document.querySelectorAll('#slide .swiper-pagination .swiper-pagination-bullet');
+  const prev = bullets[sw.previousRealIndex];
+  const curr = bullets[sw.realIndex];
+
+  bullets.forEach(b => b.classList.remove('is-in','is-out'));
+
+  if (prev && prev !== curr) prev.classList.add('is-out'); // 왼→오로 줄어듦
+  if (curr) curr.classList.add('is-in');                    // 오→왼으로 차오름
+}
+// 초기 1회 + 전환마다
+pickSwiper.on('init', () => syncBulletAnim(pickSwiper));
+pickSwiper.on('slideChangeTransitionStart', () => syncBulletAnim(pickSwiper));
+// (이미 생성된 인스턴스면) 강제 동기화
+syncBulletAnim(pickSwiper);
+
+    // 양옆 강조 표시
+    function markEdgeSlides() {
+      const slides = pickSwiper.slides;
+      const total = slides.length;
+      slides.forEach(el => el.classList.remove("prev2", "next2"));
+      const prev2 = (pickSwiper.activeIndex - 2 + total) % total;
+      const next2 = (pickSwiper.activeIndex + 2) % total;
+      slides[prev2]?.classList.add("prev2");
+      slides[next2]?.classList.add("next2");
+    }
+    markEdgeSlides();
+    pickSwiper.on("slideChangeTransitionStart", markEdgeSlides);
+
+    /* -----------------------------
+       왼쪽 텍스트: 더블버퍼 크로스페이드
+    ----------------------------- */
+    const textWrap = document.querySelector('.mp__text');
+    const activeArticle = textWrap.querySelector('.mp__text-item.active');
+    const poolHidden = Array.from(textWrap.querySelectorAll('.hidden .mp__text-item'));
+
+    // 전환 대상 데이터 (현재+숨김)
+    const firstVisible = activeArticle.cloneNode(true);
+    const items = [firstVisible, ...poolHidden];
+
+    // 기존 콘텐츠(h3/p/ul/thumb)를 stage/layer 구조로 감싸기
+    const stage = document.createElement('div');
+    stage.className = 'mp__stage';
+
+    // 현재 DOM 자식 중 보여줄 파트만 모으기
+    const parts = [
+      activeArticle.querySelector('h3'),
+      activeArticle.querySelector('p'),
+      activeArticle.querySelector('.mp__hashtag'),
+      activeArticle.querySelector('.mp__text-thumb')
+    ].filter(Boolean);
+
+    // layerA: 현재 보이는 레이어 (기존 내용을 이 안으로 이동)
+    const layerA = document.createElement('div');
+    layerA.className = 'mp__layer is-show';
+    parts.forEach(el => layerA.appendChild(el));
+
+    // layerB: 다음 내용을 위한 백버퍼 레이어
+    const layerB = document.createElement('div');
+    layerB.className = 'mp__layer';
+
+    // stage 구성
+    stage.appendChild(layerA);
+    stage.appendChild(layerB);
+    activeArticle.appendChild(stage);
+
+    // 유틸: 레이어에 내용 채우기
+    function fillLayer(layer, srcItem) {
+      layer.innerHTML = ''; // 비우고
+      const h3 = srcItem.querySelector('h3')?.cloneNode(true);
+      const p = srcItem.querySelector('p')?.cloneNode(true);
+      const ul = srcItem.querySelector('.mp__hashtag')?.cloneNode(true);
+      const th = srcItem.querySelector('.mp__text-thumb')?.cloneNode(true);
+      [h3, p, ul, th].forEach(node => node && layer.appendChild(node));
+    }
+
+    let front = layerA; // 현재 보이는 레이어
+    let back = layerB; // 다음 내용 미리 그릴 레이어
+    let lastIndex = -1;
+
+    // 크로스페이드 (인터럽트 OK, 연타 OK)
+    function crossfadeTo(idx) {
+      const src = items[idx % items.length];
+
+      fillLayer(back, src);
+
+      // ★ 레이어 교체 직전에 stage 높이를 현재(front) 높이로 고정 → 점프/수축 방지
+      stage.style.minHeight = front.offsetHeight + 'px';
+
+      requestAnimationFrame(() => {
+        back.classList.add('is-show');
+        requestAnimationFrame(() => {
+          front.classList.remove('is-show');
+          const tmp = front; front = back; back = tmp;
+
+          // 새 내용이 자리잡은 뒤 minHeight 해제해서 자연스런 높이로
+          requestAnimationFrame(() => { stage.style.minHeight = ''; });
+        });
+      });
+    }
+
+    // 슬라이드 이동 '시작'과 동시에 텍스트도 시작
+    function onSlideStartSync() {
+      const i = pickSwiper.realIndex;
+      if (i === lastIndex) return;
+      lastIndex = i;
+      crossfadeTo(i);
+    }
+
+    // 초기 1회
+    onSlideStartSync();
+
+    // 버튼/드래그 등 모든 이동 시작 시 동시 전환
+    pickSwiper.on('slideChangeTransitionStart', onSlideStartSync);
+
+    // 드래그 중 스냅 등 예외 보강
+    pickSwiper.on('realIndexChange', () => {
+      // 진행 중이어도 crossfadeTo가 바로 덮어써서 깔끔히 이어짐
+      onSlideStartSync();
+    });
+
+    // 기존 pickSwiper 생성부 그대로 두고, 아래만 추가
+function syncBulletAnim(sw) {
+  const bullets = document.querySelectorAll('#slide .swiper-pagination .swiper-pagination-bullet');
+  if (!bullets.length) return;
+
+  const n = bullets.length;
+  const prev = sw.previousRealIndex ?? 0;
+  const curr = sw.realIndex ?? 0;
+
+  // 방향 계산(루프/점프 클릭 모두 대응)
+  const d = (curr - prev + n) % n;
+  const isForward = d !== 0 && d <= n / 2; // 한 칸이든 여러 칸이든 '가까운 쪽' 기준
+
+  const root = document.querySelector('#slide .swiper-pagination');
+  root.classList.toggle('dir-forward', isForward);
+  root.classList.toggle('dir-backward', !isForward);
+
+  bullets.forEach(b => b.classList.remove('is-in','is-out'));
+  if (bullets[prev] && prev !== curr) bullets[prev].classList.add('is-out');
+  if (bullets[curr]) bullets[curr].classList.add('is-in');
+}
+
+// 초기/전환 훅
+pickSwiper.on('init', () => syncBulletAnim(pickSwiper));
+pickSwiper.on('slideChangeTransitionStart', () => syncBulletAnim(pickSwiper));
+// 이미 생성된 인스턴스면 한 번 동기화
+syncBulletAnim(pickSwiper);
+
+  </script>
+
+  <!-- 양조장 지도: Slick + 핀 이동 -->
+  <script>
+    $(function () {
+      const $slider = $(".center");
+      const $dots = $(".bm__map .pin");
+      const $bigPin = $("#pin-focus");
+
+      $slider.slick({ arrows: true, dots: false, infinite: true });
+      moveTo(0);
+
+      $slider.on("beforeChange", (e, slick, curr, next) => moveTo(next));
+
+      $dots.on("click", function () {
+        const idx = $(this).data("slide");
+        $slider.slick("slickGoTo", idx);
+        moveTo(idx);
+      });
+
+      function moveTo(i) {
+        $dots.removeClass("current").filter(`[data-slide=${i}]`).addClass("current");
+        const $t = $dots.filter(`[data-slide=${i}]`);
+        $bigPin.css({
+          left: parseInt($t.css("left"), 10) + 8.5,
+          top: parseInt($t.css("top"), 10)
+        });
+      }
+    });
+  </script>
+
+  <!-- 탭 전환 -->
+  <script>
+    $(".tab-nav li").on("click", function () {
+      const id = $(this).data("tab");
+      $(this).addClass("on").siblings().removeClass("on");
+      $(".tab-panel").removeClass("show");
+      $("#" + id).addClass("show");
+    });
+  </script>
+
+  <!-- 한 잔의 기록: 호버 확장 -->
+  <script>
+    document.querySelectorAll(".story-card").forEach(card => {
+      card.addEventListener("mouseenter", () => {
+        document.querySelectorAll(".story-card").forEach(c => c.classList.remove("is-active"));
+        card.classList.add("is-active");
+      });
+    });
+  </script>
+
+  <!-- 테스트 섹션: 배경 버블 -->
+  <script>
+    Math.TWO_PI = Math.PI * 2;
+    let canvas, ctx, bubbles = [];
+    const section = document.getElementById("test");
+
+    function Bubble(opts = {}) { this.init(opts); }
+    Bubble.prototype = {
+      init(opts = {}) {
+        this.radius = Math.random() * 7;
+        this.x = opts.x || Math.random() * canvas.width;
+        this.y = opts.y || section.offsetHeight + this.radius;
+        this.vx = Math.random() * 0.03;
+        this.vy = 1 + Math.random() * 4;
+        this.sway = 0.25 + Math.random() * 0.25;
+        this.angle = Math.random() * Math.TWO_PI;
+        this.opacity = 0.2 + Math.random() * 0.2;
+        return this;
+      },
+      update() {
+        this.x += Math.cos(this.angle) * this.sway;
+        this.y -= this.vy;
+        this.angle += this.vx;
+        if (this.y + this.radius < 0) this.init({ y: section.offsetHeight + this.radius });
+      },
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.TWO_PI);
+        ctx.fillStyle = `rgba(255,255,255,${this.opacity})`;
+        ctx.fill();
+      },
+      render() { this.update(); this.draw(); }
+    };
+
+    function loop() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      bubbles.forEach(b => b.render());
+      requestAnimationFrame(loop);
+    }
+
+    function resize() {
+      canvas.width = section.clientWidth;
+      canvas.height = section.clientHeight;
+    }
+
+    (function init() {
+      canvas = document.createElement("canvas");
+      canvas.style.cssText = "position:absolute; top:0; left:0; width:100%; height:100%;";
+      section.style.position = "relative";
+      section.appendChild(canvas);
+
+      ctx = canvas.getContext("2d");
+      resize();
+
+      const num = Math.round(canvas.width * 0.125);
+      bubbles = [];
+      for (let i = 0; i < num; i++) {
+        bubbles.push(new Bubble({ x: Math.random() * canvas.width, y: Math.random() * canvas.height }));
+      }
+
+      window.addEventListener("resize", resize);
+      requestAnimationFrame(loop);
+    })();
+  </script>
+
+  <!-- FAQ 아코디언 -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const items = document.querySelectorAll(".faq__item");
+
+      items.forEach(item => {
+        const btn = item.querySelector(".faq__q");
+        const answer = item.querySelector(".faq__a");
+
+        // 초기 상태
+        answer.style.height = "0";
+        answer.hidden = true;
+
+        answer.addEventListener("transitionend", () => {
+          if (!item.classList.contains("open")) {
+            answer.style.height = "0";
+            answer.hidden = true;
+            btn.setAttribute("aria-expanded", "false");
+          } else {
+            answer.style.height = "auto";
+            answer.hidden = false;
+            btn.setAttribute("aria-expanded", "true");
+          }
+        });
+
+        btn.addEventListener("click", () => {
+          const opened = document.querySelector(".faq__item.open");
+          if (opened && opened !== item) close(opened);
+          item.classList.contains("open") ? close(item) : open(item);
+        });
+
+        function open(it) {
+          const a = it.querySelector(".faq__a");
+          a.hidden = false;
+          a.style.height = "auto";
+          const full = a.scrollHeight + "px";
+          a.style.height = "0";
+          requestAnimationFrame(() => {
+            it.classList.add("open");
+            a.style.height = full;
+          });
+        }
+
+        function close(it) {
+          const a = it.querySelector(".faq__a");
+          a.style.height = a.scrollHeight + "px";
+          requestAnimationFrame(() => {
+            it.classList.remove("open");
+            a.style.height = "0";
+          });
+        }
+      });
+    });
+
+  </script>
+
+</body>
+
+</html>
